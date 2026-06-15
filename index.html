@@ -8,8 +8,14 @@
          
     </head>
     <body>
-        <div id="calculator">
-            <input type="text"  id="display" readonly>
+            <div id="calculator">
+                <div class ="display-wrap">
+            <input type="text" id="display" readonly placeholder="0">
+            <button id="chaosToggle">💣</button>
+            </div>
+            
+                <div id="history"></div>
+            <!-- <input type="text"  id="display" readonly> -->
             <div id ="keys">
                 <button data-value="7">7</button>
                 <button data-value="8">8</button>
@@ -30,6 +36,7 @@
                 <button data-value="0">0</button>
                 <button id="equals">=</button>
                 <button data-value="/">/</button>
+            </div>
             </div>
 
         </div>
