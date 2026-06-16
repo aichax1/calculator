@@ -48,14 +48,17 @@ function resetNumberButtons() {
 chaosToggle.addEventListener("click", () => {
   chaosMode = !chaosMode;
   chaosToggle.classList.toggle("active");
+ 
 
   if (chaosMode) {
+    dodgeCount = 0;
     shuffleNumberButtons();
     chaosInterval = setInterval(shuffleNumberButtons, 3000);
   } else {
     clearInterval(chaosInterval);
     resetNumberButtons();
     equalsBtn.style.transform = "translate(0, 0)";
+    dodgeCount = 0;
   }
 });
 
@@ -83,38 +86,51 @@ clearBtn.addEventListener("click", () => {
 });
 
 const chaosAnswers = {
-  "2+2": "2+2",
+  "2+2": "2 + 2",
   "1+1": "window",
-  "6*6": "banana",
+  "3*5": "banana",
   "9+10": "21",
   "3+1": "5",
   "5-2": "10",
-  "5 x6": "uhmm, idk?",
+  "5*5": "uhmm, idk?",
   "8/2": "4, but also 3.9999999999999996",
-  "9 + 8": "Not smart enough for that m8",
+  "9+8": "Not smart enough for that m8",
 
 };
 
+let dodgeCount = 0;
+const maxDodges = 7;
+
 equalsBtn.addEventListener("click", () => {
+  console.log("equals clicked");
+
   try {
-    const equation = display.value;
+    const equation = display.value.trim();
 
     if (chaosMode && chaosAnswers[equation]) {
       display.value = chaosAnswers[equation];
-      return;
+    } else {
+      display.value = eval(equation);
     }
-
-    display.value = eval(equation);
   } catch {
     display.value = "Error";
   }
+
+  equalsBtn.style.transform = "translate(0, 0)";
+  dodgeCount = maxDodges;
 });
 
-equalsBtn.addEventListener("mousemove", () => {
+equalsBtn.addEventListener("mouseenter", () => {
   if (!chaosMode) return;
+  if (dodgeCount >= maxDodges) {
+    equalsBtn.style.transform = "translate(0, 0)";
+    return;
+  }
 
-  const x = Math.floor(Math.random() * 200) - 100;
-  const y = Math.floor(Math.random() * 200) - 100;
+  dodgeCount++;
+
+  const x = Math.floor(Math.random() * 160) - 80;
+  const y = Math.floor(Math.random() * 160) - 80;
 
   equalsBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
