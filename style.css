@@ -9,12 +9,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f3f1eb;
+  background: #e2dfd7;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 #calculator {
-  background: #f7f4ee;
+  background: #e3e1dd;
   padding: 18px;
   border-radius: 30px;
   box-shadow:
@@ -63,7 +63,7 @@ button {
 
 button:hover {
   transform: translateY(-1px);
-  background: #3a3a44;
+  background: #535361;
 }
 
 button:active {
@@ -84,9 +84,9 @@ button:active {
   background: #7c7c87;
 }
 
-#equals {
-  background: #6e6e78;
-}
+/* #equals {
+  background: #2f2f37;
+} */
 
 .zero {
   grid-column: span 2;
