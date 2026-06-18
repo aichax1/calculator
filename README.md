@@ -1,13 +1,15 @@
 Not your usual Calculator.
+
 A calculator built with HTML, CSS, and JavaScript that works normally... until the bomb button is clicked.
 
 Features:
-1.Normal Mode
+
+1. Normal Mode
 Basic arithmetic operations.
 Clear button.
 Simple calculator interface.
 
-2.Chaos Mode
+2. Chaos Mode
 Number buttons shuffle every few seconds.
 The equals (=) button dodges your cursor.
 Some equations return incorrect or funny answers, examples:
@@ -19,11 +21,13 @@ Some equations return incorrect or funny answers, examples:
 5-2	= 10
 
 Technologies:
+
 HTML5.
 CSS3.
 JavaScript (Vanilla JS).
 
 How to Run:
+
 Clone the repository:
 
 git clone https://github.com/aichax1/calculator.git
